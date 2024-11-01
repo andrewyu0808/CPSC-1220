@@ -1,0 +1,28 @@
+"""
+Michi Tawara, Andrew Yu
+Practice Problem 12
+28 October 2024
+"""
+studentgrades = {}
+while True:
+  try:
+    name = input ('Enter student name: ')
+    if name.lower() == 'stop':
+      break
+    studentgrades[name] = {}
+    exams = input ('Enter comma separated exams: ')
+    studentgrades[name]['Exams:'] = [int(x) for x in exams.split (',')]
+    HW = input ('Enter comma separated HW: ')
+    studentgrades[name]['HW:'] = [int(x) for x in HW.split (',')]
+    hwav = sum(studentgrades[name]['HW:'])/len(studentgrades[name]['HW:'])
+    examav = sum(studentgrades[name]['Exams:'])/len(studentgrades[name]['Exams:'])
+    studentgrades[name]['course grade: '] = (2 * hwav * 0.4) + (examav * 0.6)
+  except:
+    print ('error')
+    break
+print (studentgrades)
+
+
+
+
+
