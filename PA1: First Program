@@ -1,0 +1,125 @@
+'''
+@file name: P_P_4.py
+@authors: Andrew Yu
+@description: PA1: First Program
+@date created: 10/21/2024
+'''
+
+def initials():         #method created -> initials AY
+    print("  XX  ")       #first inital, A
+    print(" X  X ")
+    print("XXXXXX")
+    print("X    X")
+    print("X    X")
+    print()
+
+    print("X    X")       #second inital, Y
+    print(" X  X ")
+    print("  X   ")
+    print("  X   ")
+    print("  X   ")
+
+initials()
+
+
+
+
+'''
+@file name: P_P_4.py
+@authors: Andrew Yu
+@description: PA1: First Program
+@date created: 10/21/2024
+'''
+
+from typing_extensions import reveal_type
+def future_value():
+
+     investment = int(input('Enter investment amount: '))
+     interest_rate = float(input('Enter annual interest rate: '))
+     number_of_years = int(input('Enter number of years: '))
+
+
+     yearly_interest_rate = interest_rate / 100          #calculate yearly interest rate
+     monthly_interest_rate = (yearly_interest_rate)/12   #calculate monthly interest rate
+     number_of_months = number_of_years * 12             #years into months
+
+                                                          #monthly interest rate calculation:
+     monthly_total = 1
+     monthly_rate =(1 + monthly_interest_rate)            #calculate monthly rate without using exponents yet
+     for months in range(number_of_months):               #loop established
+      monthly_total*= monthly_rate                        #multiplying monthly rate by itself based on number of months. Each iteration is stored in monthly total and continue multiplying until reach total of months
+      future_val_by_months = investment * monthly_total
+
+                                                           #yearly interest rate calculation:
+     yearly_total = 1
+     yearly_rate = (1 + yearly_interest_rate)               #calculate yearly rate without using exponents yet
+     for years in range(number_of_years):                    #loop established
+       yearly_total *= yearly_rate                            #multiplying yearly rate by itself based on number of years.
+     future_val_by_years = investment * yearly_total
+
+
+     difference = future_val_by_months - future_val_by_years    #finding the increase $ due to monthly compounding
+
+     print(f'Accumulated value (monthly) is ${future_val_by_months:.2f}')
+     print(f'Accumulated value (yearly) is ${future_val_by_years:.2f}')
+     print(f'Increase due to monthly compounding is ${difference:.2f}')
+
+future_value()
+
+
+
+'''
+@file name: P_P_4.py
+@authors: Andrew Yu
+@description: PA1: First Program
+@date created: 10/21/2024
+'''
+
+import math
+
+M = int(input('How many dimes? '))
+N = int(input('How many quarters? '))
+
+def CoinArea(M,N):                     #create methods to calculate area of dime(s) and quarter(s)
+  dime_diameter = 17.9
+  quarter_diameter = 24.3
+                                                          #calculation part:
+  dime_radius = dime_diameter / 2                 #to find radius of 1 quarter and 1 dime:
+  quarter_radius = quarter_diameter / 2               # radius = diameter divided by 2
+
+  dime_area = dime_radius**2 * math.pi            #to find the area of 1 quarter and 1 dime:
+  quarter_area = quarter_radius**2 * math.pi          # area = radius raised power of 2 multiply by pi
+
+  total_dime_area = N * dime_area                 #to find total area of 1 quarter and 1 dime:
+                                                      # total area = number of quarter or/and dime multiply by area
+  total_quarter_area = M * quarter_area
+  total_area = total_dime_area + total_quarter_area
+
+  total_value = (N * 0.10) + (M * 0.25)               # total value of dimes and quarters
+
+  print(f'Total area of coins: {total_area:.2f} mm\u00B2')
+  print(f'Total value of coins: ${total_value:.2f}')
+
+  return total_area, total_value
+
+CoinArea(M,N)
+
+print('Calculate the FV of Total Value:')                #part 2: calculate future values
+
+total_value = (N * 0.10) + (M * 0.25)                    #inital sum of money (dimes and quarters combined)
+principal = total_value
+rate = float(input('What is the annual interest rate? '))
+time = int(input('How many year(s)? '))
+
+def futureValue(principal, rate, time):                  #begin new method: calculate FV of user dimes and quarters input
+
+  rate = 1 + rate
+  total_rate = rate                                   #use for loop to repeat multiplying total_rate by itself because of exponents
+  for i in range(time):                                   #ex: time = 3 --> i counts from 0,1,2 (3 times)
+    total_rate *= time                                   #total_rate = takes rate multiply by itself (time) amount
+  future_value = principal * total_rate                 #initial value multiply by total_rate
+
+
+  print(f"Your future value is: ${future_value:.2f}")
+
+futureValue(principal, rate, time)
