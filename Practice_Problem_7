@@ -1,0 +1,81 @@
+"""
+Andrew yu, Michi Tawara
+Practice Problem 7
+10/11/2024
+"""
+def loan(savings = 0, age = 0, house = 0):
+  if age <= 30:
+    amount = 0 ; loan = False
+    print("You are not eligible for a Loan")
+    return loan, amount
+  elif savings < 10000:
+    if house == 0:
+      amount = 0 ; loan = False
+      print("You are not eligible for a Loan")
+      return loan, amount
+    elif house > 0:
+      if age > 50:
+        amount = 60000 ; loan = True
+        print(f"You are eligible for a loan of {amount}")
+        return loan, amount
+      elif age > 30 and age <=50:
+        amount = 30000 ; loan = True
+        print(f"You are eligible for a loan of {amount}")
+        return loan, amount
+  elif savings >= 10000 and savings < 20000:
+    if house == 0:
+      amount = 0 ; loan = False
+      print("You are not eligible for a Loan")
+      return loan, amount
+    elif house > 0:
+      if age > 50:
+        amount = 80000 ; loan = True
+        print(f"You are eligible for a loan of {amount}")
+        return loan, amount
+      elif age > 30 and age <=50:
+        amount = 40000 ; loan = True
+        print(f"You are eligible for a loan of {amount}")
+        return loan, amount
+  elif savings >= 20000 and savings < 30000:
+    if house == 0:
+      amount = 0 ; loan = False
+      print("You are not eligible for a Loan")
+      return loan, amount
+    elif house > 0:
+      if age > 50:
+        amount = 90000 ; loan = True
+        print(f"You are eligible for a loan of {amount}")
+        return loan, amount
+      elif age > 30 and age <=50:
+        amount = 500000 ; loan = True
+        print(f"You are eligible for a loan of {amount}")
+        return loan, amount
+  elif savings >= 30000 and savings < 100000:
+    if house == 0:
+      if age > 50:
+        amount = 50000 ; loan = True
+        print(f"You are eligible for a loan of {amount}")
+        return loan, amount
+      elif age > 30 and age <=50:
+        amount = 0 ; loan = False
+        print("You are not eligible for a Loan")
+        return loan, amount
+    if house > 0:
+      if age > 50:
+        amount = 100000 ; loan = True
+        print(f"You are eligible for a loan of {amount}")
+        return loan, amount
+      elif age > 30 and age <=50:
+        amount = 100000 ; loan = True
+        print(f"You are eligible for a loan of {amount}")
+        return loan, amount
+  elif savings >= 100000:
+    if age > 30:
+      amount = 150000 ; loan = True
+      print(f"You are eligible for a loan of {amount}")
+
+
+
+loan(5000, 50, 1)
+loan(20000, 30, 1)
+loan(200000, 40, 0)
