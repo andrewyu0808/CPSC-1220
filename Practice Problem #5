@@ -1,0 +1,25 @@
+"""
+@file name: P_P_5.ipynb
+@authors: Andrew Yu, Michi Tawara
+@description: recipe for lemonade
+@day created: 10/07/2024
+"""
+def lemon_juice(juice = 2, water = 16, syrup = 2.5, serving = 6):
+  print ("Lemon juice (in cups):", juice)
+  print ("Amount of Water (in cups):", water)
+  print ("Amount of Syrup (in cups):", syrup)
+  print ("How many servings does this make?", serving)
+  print("==========================")
+  print("Lemonade ingredients that yield", serving, "servings: ")
+  print(juice, "cup(s) lemon juice")
+  print(water, "cup(s) water")
+  print(syrup, "cup(s) syrup")
+  print("==========================")
+  finserving = float(input("How many servings would you like to make? "))
+  mult = finserving / serving
+  print (juice * mult, "cup(s) lemon juice")
+  print (water * mult, "cup(s) water")
+  print (syrup * mult, "cup(s) syrup")
+  return()
+
+lemon_juice()
