@@ -1,0 +1,29 @@
+"""
+Andrew yu, Michi Tawara
+Practice Problem 6
+10/9/2024
+program that asks for a value and gives the sum, count, and average
+"""
+def sum_average():
+  count = 0
+  total = 0
+  while True:
+    user_input = input("enter a number or STOP ")
+    if user_input == "STOP":
+      break
+    else:
+      count += 1
+      total += int(user_input)
+      average = total / count
+  print("You had a total of", count, "integers.")
+  print("Your total sum was", total)
+  print("Your average was", average)
+  if average < 0:
+    print("Your average is negative")
+  elif average > 0 and average < 100:
+    print("Your average is low")
+  else:
+    print("Your average is high")
+  return average, sum
+sum_average()
+
