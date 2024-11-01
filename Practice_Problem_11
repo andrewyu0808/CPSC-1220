@@ -1,0 +1,45 @@
+from google.colab import files
+uploaded = files.upload()
+my_file = open('pride.txt')
+my_string = my_file.read()
+
+"""
+Michi Tawara, Andrew Yu
+practice problem 11
+10/25/2024
+"""
+
+my_string = my_string.replace('\n', '')
+my_string = my_string.replace('', '')
+my_string = my_string.replace('.', '')
+my_string = my_string.replace(',', '')
+my_string = my_string.replace(';', '')
+my_string = my_string.replace(':', '')
+my_string = my_string.replace('?', '')
+my_string = my_string.replace('!', '')
+my_string = my_string.replace('(', '')
+my_string = my_string.replace(')', '')
+my_string = my_string.replace('"', '')
+my_string = my_string.replace('-', '')
+my_string = my_string.replace('/', '')
+my_string = my_string.replace('\'', '')
+
+list1 = my_string.split()
+dict1 = {}
+dict2 = {}
+for word in list1:
+  new_num = list1.count(word)
+  word1 = word
+  dict1[word1] = new_num
+print(dict1)
+length = 1
+occur = 0
+for i in dict1:
+  if len(i) == length:
+    if dict1[i] > occur:
+      occur = dict1[i]
+      dict2[i] = occur
+      length += 1
+      occur = 0
+
+print(dict2)
