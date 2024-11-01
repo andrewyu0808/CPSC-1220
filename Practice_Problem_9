@@ -1,0 +1,26 @@
+from google.colab import files
+uploaded = files.upload()
+my_file = open('pride.txt')
+my_string = my_file.read()
+
+
+new_my_string = my_string.replace(' ', '')
+new_my_string = new_my_string.replace('\n', '')
+list1 = []
+counter = 0
+for i in range (len(new_my_string) - 2):
+  list1.append(new_my_string[i:i+3])
+for i in list1:
+  if i == 'the':
+    counter += 1
+print(counter, '\'the\'s')
+max_substring = ''
+max_count = 0
+for i in range(len(my_string) - 2):
+  current_substring = my_string[i:i+3]
+  remaining_string = my_string[i+1:]
+  count = remaining_string.count(current_substring) + 1
+  if count > max_count:
+    max_substring = current_substring
+    max_count = count
+print(f"Substring: '{max_substring}'   Count: {max_count}")
