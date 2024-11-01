@@ -1,0 +1,38 @@
+from google.colab import files
+uploaded = files.upload()
+my_file = open('election.csv')
+my_string = my_file.read()
+
+"""
+Michi Tawara, Andrew Yu
+Practice Problem 13
+October 30 2024
+"""
+
+
+my_file = open('election.csv')
+election_file = open('election.csv')
+
+out_file = open('/content/drive/My Drive/winner.txt', 'w')
+
+
+for i in range (4):
+  election_file.readline()
+
+
+for line in election_file:
+  data = line.replace('%', '')
+  data = data.split(',')
+
+  state_name = data[0]
+
+  if data[3] > data[6]:
+    winner = 'Democrat'
+    difference = (float(data[3]) - float(data[6]))
+  else:
+    winner = 'Republican'
+    difference = (float(data[6]) - float(data[3]))
+  out_file.write(f'{state_name}, {winner}, {difference}\n')
+
+out_file.close()
+
