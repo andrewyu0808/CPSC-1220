@@ -1,0 +1,39 @@
+"""
+Michi Tawara, Andrew Yu
+Practice 14
+1 November 2024
+"""
+NameID_1 = {}
+while True:
+  user_input = input('Add the name and the ID: ')
+  if user_input.lower() == 'quit':
+    break
+  name, ID = user_input.split()
+  for k in NameID_1:
+    if name == k:
+      if ID == NameID_1[k]:
+        print('This person is already in the dictionary')
+        break
+      else:
+        name = name + '1'
+        NameID_1[name] = ID
+        print('We have saved this person as ' + name)
+        break
+    else:
+      break
+  NameID_1[name] = ID
+print (NameID_1)
+
+
+"""
+**********PART 4***********
+"""
+NameID_2 = {}
+while True:
+  user_input = input('Add the name and the ID numbers separated by commas: ')
+
+  if user_input.lower() == 'quit':
+    break
+  list1 = user_input.split(',')
+  length = len(list1)
+  numbers = list1[1, int(length + 1)]
